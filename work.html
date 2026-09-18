@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jatin Kumar | Selected Work</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #eeeeeb;
+            color: #151515;
+            font-family: "Inter", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        .work-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 50px);
+            max-width: 1200px;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 22px;
+
+            border: 1px solid rgba(255,255,255,.7);
+            border-radius: 50px;
+
+            background: rgba(255,255,255,.48);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow: 0 10px 35px rgba(0,0,0,.06);
+        }
+
+        .work-logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: -.04em;
+        }
+
+        .work-nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .work-nav-links a {
+            font-size: 10px;
+            letter-spacing: .12em;
+            font-weight: 600;
+        }
+
+        .work-nav-links a:hover {
+            color: #a51f40;
+        }
+
+        /* MAIN */
+
+        .work-container {
+            width: min(1200px, 90%);
+            margin: auto;
+            padding-top: 170px;
+            padding-bottom: 100px;
+        }
+
+        /* HEADER */
+
+        .work-header {
+            margin-bottom: 110px;
+        }
+
+        .work-eyebrow {
+            font-size: 10px;
+            letter-spacing: .18em;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .work-header h1 {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(70px, 12vw, 160px);
+            line-height: .8;
+            letter-spacing: -.08em;
+        }
+
+        .work-header h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1.5px #171717;
+        }
+
+        .work-intro {
+            max-width: 540px;
+            margin-top: 35px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* CATEGORY */
+
+        .work-section {
+            margin-bottom: 120px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 30px;
+
+            padding-bottom: 18px;
+            margin-bottom: 30px;
+
+            border-bottom: 1px solid rgba(0,0,0,.12);
+        }
+
+        .heading-left {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+
+        .section-number {
+            font-size: 10px;
+            color: #888;
+            letter-spacing: .15em;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1;
+            letter-spacing: -.06em;
+        }
+
+        /* WARNING */
+
+        .content-warning {
+            margin: 9px 0 0 0;
+            font-size: 10px;
+            line-height: 1.5;
+            color: #777;
+            letter-spacing: .02em;
+        }
+
+        /* GRID */
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .work-grid.vertical {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* CARD */
+
+        .work-card {
+            overflow: hidden;
+            border-radius: 24px;
+
+            background: rgba(255,255,255,.42);
+            border: 1px solid rgba(255,255,255,.75);
+
+            box-shadow: 0 15px 40px rgba(0,0,0,.05);
+
+            transition:
+                transform .45s ease,
+                box-shadow .45s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 55px rgba(0,0,0,.10);
+        }
+
+        /* THUMBNAIL */
+
+        .thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #d5d5d2;
+        }
+
+        .thumbnail.vertical {
+            aspect-ratio: 9 / 16;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+
+            transition:
+                transform .6s ease,
+                filter .6s ease;
+        }
+
+        .work-card:hover .thumbnail img {
+            transform: scale(1.06);
+            filter: brightness(.78);
+        }
+
+        /* BUTTON */
+
+        .view-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transform: translate(-50%, -50%) scale(.8);
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            font-size: 20px;
+
+            opacity: 0;
+
+            transition:
+                opacity .35s ease,
+                transform .35s ease;
+        }
+
+        .work-card:hover .view-button {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* INFO */
+
+        .work-info {
+            padding: 20px 22px 24px;
+        }
+
+        .work-type {
+            margin-bottom: 8px;
+
+            font-size: 9px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .work-info h3 {
+            margin: 0 0 8px;
+
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 20px;
+            letter-spacing: -.03em;
+        }
+
+        .work-info p {
+            margin: 0;
+
+            font-size: 12px;
+            line-height: 1.6;
+            color: #777;
+        }
+
+        /* FOOTER */
+
+        .work-footer {
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,.1);
+
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        .work-footer a:hover {
+            color: #a51f40;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .work-container {
+                padding-top: 130px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-grid.vertical {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .work-nav {
+                width: calc(100% - 25px);
+                top: 12px;
+            }
+
+            .work-nav-links {
+                gap: 12px;
+            }
+
+            .work-nav-links a {
+                font-size: 8px;
+            }
+
+            .work-container {
+                width: 92%;
+                padding-top: 115px;
+            }
+
+            .work-header {
+                margin-bottom: 80px;
+            }
+
+            .work-header h1 {
+                font-size: 68px;
+            }
+
+            .work-grid.vertical {
+                grid-template-columns: 1fr;
+            }
+
+            .work-section {
+                margin-bottom: 80px;
+            }
+
+            .work-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="work-nav">
+
+        <a href="index.html" class="work-logo">
+            JATIN.
+        </a>
+
+        <div class="work-nav-links">
+            <a href="index.html">ABOUT</a>
+            <a href="work.html">WORK</a>
+            <a href="index.html#contact">CONTACT</a>
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="work-container">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="work-header">
+
+            <div class="work-eyebrow">
+                EDITOR / SELECTED WORK
+            </div>
+
+          <h1 class="selected-work-title">
+    Selected <span>Work.</span>
+            </h1>
+
+            <p class="work-intro">
+                A selection of my video editing work across long-form videos,
+                YouTube Shorts, and Instagram Reels — focused on pacing,
+                storytelling, visual impact, and clean execution.
+            </p>
+
+        </header>
+
+
+        <!-- ==================================================
+             LONG FORM
+        =================================================== -->
+
+        <section class="work-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="heading-left">
+
+                        <span class="section-number">
+                            01
+                        </span>
+
+                        <h2>
+                            Long Form
+                        </h2>
+
+                    </div>
+
+                    <p class="content-warning">
+                        Some of the videos may contain abusive language.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-grid">
+
+
+                <!-- LONG FORM 01 -->
+
+                <article class="work-card">
+
+                    <a
+                        href="https://youtu.be/9Tow34Q9_kQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="thumbnail">
+
+                            <img
+                                src="https://img.youtube.com/vi/9Tow34Q9_kQ/maxresdefault.jpg"
+                                alt="Long Form Edit 01"
+                            >
+
+                            <div class="view-button">
+                                →
+                            </div>
+
+                        </div>
+
+                        <div class="work-info">
+
+                            <div class="work-type">
+                                YouTube / Long Form
+                            </div>
+
+                            <h3>
+                                Long Form Edit 01
+                            </h3>
+
+                            <p>
+                                Long-form video edit focused on pacing,
+                                storytelling and engaging visual flow.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+
+                <!-- LONG FORM 02 -->
+
+                <article class="work-card">
+
+                    <a
+                        href="https://youtu.be/pMxMr0jYJyA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="thumbnail">
+
+                            <img
+                                src="https://img.youtube.com/vi/pMxMr0jYJyA/maxresdefault.jpg"
+                                alt="Long Form Edit 02"
+                            >
+
+                            <div class="view-button">
+                                →
+                            </div>
+
+                        </div>
+
+                        <div class="work-info">
+
+                            <div class="work-type">
+                                YouTube / Long Form
+                            </div>
+
+                            <h3>
+                                Long Form Edit 02
+                            </h3>
+
+                            <p>
+                                Extended-form edit combining clean cuts,
+                                timing, transitions and visual storytelling.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SHORTS
+        =================================================== -->
+
+        <section class="work-section">
+
+            <div class="section-heading">
+
+                <div class="heading-left">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <h2>
+                        Shorts
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-grid vertical">
+
+
+                <!-- SHORT 01 -->
+
+                <article class="work-card">
+
+                    <a
+                        href="https://youtube.com/shorts/VkHVOPz6ncQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="thumbnail vertical">
+
+                            <img
+                                src="https://img.youtube.com/vi/VkHVOPz6ncQ/maxresdefault.jpg"
+                                alt="YouTube Short 01"
+                            >
+
+                            <div class="view-button">
+                                →
+                            </div>
+
+                        </div>
+
+                        <div class="work-info">
+
+                            <div class="work-type">
+                                YouTube / Short
+                            </div>
+
+                            <h3>
+                                Short Edit 01
+                            </h3>
+
+                            <p>
+                                Fast-paced short-form edit designed
+                                around timing and viewer retention.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+
+                <!-- SHORT 02 -->
+
+                <article class="work-card">
+
+                    <a
+                        href="https://youtube.com/shorts/GJEJmI5ZW4s"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="thumbnail vertical">
+
+                            <img
+                                src="https://img.youtube.com/vi/GJEJmI5ZW4s/maxresdefault.jpg"
+                                alt="YouTube Short 02"
+                            >
+
+                            <div class="view-button">
+                                →
+                            </div>
+
+                        </div>
+
+                        <div class="work-info">
+
+                            <div class="work-type">
+                                YouTube / Short
+                            </div>
+
+                            <h3>
+                                Short Edit 02
+                            </h3>
+
+                            <p>
+                                Short-form edit built around quick cuts,
+                                effects and visual impact.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+
+                <!-- SHORT 03 -->
+
+                <article class="work-card">
+
+                    <a
+                        href="https://youtube.com/shorts/lg1EOgpo8yI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="thumbnail vertical">
+
+                            <img
+                                src="https://img.youtube.com/vi/lg1EOgpo8yI/maxresdefault.jpg"
+                                alt="WEIRD FACTS about DEMON SLAYER That you didn't know"
+                            >
+
+                            <div class="view-button">
+                                →
+                            </div>
+
+                        </div>
+
+                        <div class="work-info">
+
+                            <div class="work-type">
+                                YouTube / Short
+                            </div>
+
+                            <h3>
+                                Demon Slayer — Weird Facts
+                            </h3>
+
+                            <p>
+                                Fast-paced anime short focused on engaging
+                                facts and dynamic visual storytelling.
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             REELS
+        =================================================== -->
+
+        <section class="work-section">
+
+            <div class="section-heading">
+
+                <div class="heading-left">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <h2>
+                        Reels
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="work-grid vertical">
+
+<!-- REEL 01 -->
+
+<article class="work-card">
+
+    <a
+        href="https://www.instagram.com/reel/Dbj0E3RTvT8/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <div class="thumbnail vertical">
+
+            <img
+                src="assets/insta reel 1.jpg"
+                alt="Instagram Reel 01"
+            >
+
+            <div class="view-button">
+                →
+            </div>
+
+        </div>
+
+        <div class="work-info">
+
+            <div class="work-type">
+                Instagram / Reel
+            </div>
+
+            <h3>
+                Reel Edit 01
+            </h3>
+
+            <p>
+                Social-first edit focused on rhythm,
+                transitions and visual energy.
+            </p>
+
+        </div>
+
+    </a>
+
+</article>
+
+              <!-- REEL 02 -->
+
+<article class="work-card">
+
+    <a
+        href="https://www.instagram.com/reel/DbY0b8OTc0f/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <div class="thumbnail vertical">
+
+            <img
+                src="assets/reel 2.jpg"
+                alt="Instagram Reel 02"
+            >
+
+            <div class="view-button">
+                →
+            </div>
+
+        </div>
+
+        <div class="work-info">
+
+            <div class="work-type">
+                Instagram / Reel
+            </div>
+
+            <h3>
+                Reel Edit 02
+            </h3>
+
+            <p>
+                Short-form social edit with emphasis
+                on pacing and engaging visuals.
+            </p>
+
+        </div>
+
+    </a>
+
+</article>
+
+             <!-- REEL 03 -->
+
+<article class="work-card">
+
+    <a
+        href="https://www.instagram.com/reel/DbVe1k9zaLo/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <div class="thumbnail vertical">
+
+            <img
+                src="assets/reel 3.jpg"
+                alt="Instagram Reel 03"
+            >
+
+            <div class="view-button">
+                →
+            </div>
+
+        </div>
+
+        <div class="work-info">
+
+            <div class="work-type">
+                Instagram / Reel
+            </div>
+
+            <h3>
+                Reel Edit 03
+            </h3>
+
+            <p>
+                Social media edit combining dynamic pacing,
+                transitions and visual storytelling.
+            </p>
+
+        </div>
+
+    </a>
+
+</article>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="work-footer">
+
+            <span>
+                Jatin Kumar — Video Editor
+            </span>
+
+            <a href="index.html">
+                Back Home →
+            </a>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
